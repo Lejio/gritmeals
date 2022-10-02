@@ -17,11 +17,13 @@
 .landingPageEmailBox
 {
     width: 500px;
+    height: 50px;
     padding: 12px 20px;
     margin: 18px 0;
     margin-top: -50px;
     margin-left: 150px;
     display: inline-block;
+    font-size:20px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -68,18 +70,8 @@
     width: 200px;
     text-align: center;
     display: inline-block;
-    margin-left: 280px;
+    margin-left: 295px;
     border-radius: 15px;
-}
-
-.landingPageSideBar
-{
-    border-radius: 25px;
-    border: 2px solid #e9c40d;
-    padding: 20px;
-    margin-left: 60%; 
-    width: 500px;
-    height: 800px;  
 }
 
 .landingPageInfoColumn
@@ -139,4 +131,14 @@
 .githubLinkText
 {
     padding-left:160px;
+}
+
+.popup
+{
+    margin-top:25px;
+    border-radius: 25px;
+    background: #e9c40d;
+    padding: 20px; 
+    width: 600px;
+    height: 700px;  
 }

@@ -1,21 +1,33 @@
 import sqlite3
 
-conn = sqlite3.connect('gritmeals.db')
+def create_connection():
+    conn = sqlite3.connect('Database/gritmeals.db')
 
-c = conn.cursor()
+    c = conn.cursor()
 
-try:
-    cmd = """CREATE TABLE IF NOT EXISTS subscribers(
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        email VARCHAR(320));"""
-    c.execute(cmd)
-    print("Creating")
-except:
-    print("Skipped")
-    pass
+    return c, conn
 
-c.execute("""INSERT INTO subscribers VALUES(1,"pranavv1@umbc.edu") """)
 
-conn.commit()
+def create_table(c):
+    try:
+        cmd = """CREATE TABLE IF NOT EXISTS subscribers(
+            email VARCHAR(320));"""
+        c.execute(cmd)
+        print("Creating")
+    except:
+        print("Skipped")
+        pass
 
-conn.close()
+def insert_data(c, email):
+    print(email)
+    c.execute(f"""INSERT INTO subscribers VALUES("{email}") """)
+
+def get_all_subs(c):
+
+    return c.execute("""SELECT * FROM 'subscribers'""")
+
+
+def save_session(conn):
+    conn.commit()
+
+    conn.close()

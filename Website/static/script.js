@@ -41,15 +41,6 @@ function Buttons()
 }
 
 
-function SideBar()
-{
-    return (
-        <div className="landingPageSideBar">
-        </div>
-    )    
-}
-
-
 function LeftColumn()
 {
     return(
@@ -69,7 +60,7 @@ function InfoContent()
             <h1 className="infoContentTitle">How GritMeals Works</h1>
             
             <div className="infoContent">
-                <h2>GritMeals was built using numerous technologies, including React, Mailchimp, Flask, SQLite, nginx, and Google Computing Engine.</h2>
+                <h2>GritMeals was built using numerous technologies, including React, Mailchimp, jQuery, Flask, SQLite, nginx, and Google Computing Engine.</h2>
                 <h2>GritMeals does four things when you enter your email address:</h2> 
 
                 <ol className="infoList">
@@ -79,7 +70,7 @@ function InfoContent()
                     <li className="infoListItem"> The HTML-embedded email is then sent to all registered users at 6:00 AM (EST). </li>
                 </ol>
 
-                <a className="githubLink" href="https://github.com/Lejio/gritmeals">
+                <a className="githubLink" href="https://github.com/Lejio/gritmeals" target="_blank">
                     <h1 className="githubLinkText">Visit our GitHub!</h1>
                 </a>
             </div>
@@ -109,17 +100,29 @@ function MainContent()
 
 }
 
+
 ReactDOM.render(<MainContent />, document.getElementById("root"))
 
-
-
-//
+// This function is for Ajax to communicate with Flask 
 function signIn()
 {
-    var content = document.getElementById("emailInput").value
+    var email = document.getElementById("emailInput").value
     
-    if (content != "")
+    if (email != "")
     {
-        alert(content)
+        const dict_value = {email}
+        const s = JSON.stringify(dict_value);
+        
+        $.ajax({
+            url:"/test",
+            type:"POST",
+            contentType: "application/json",
+            data: JSON.stringify(s)})
+            
+        alert(email + " has been added to our database")
+    }
+    else 
+    {
+        alert("You must enter an email address!")
     }
 }

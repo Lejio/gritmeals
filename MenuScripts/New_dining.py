@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+from gritmeals.Database.entry import *
 import smtplib
 from datetime import date
 from email.mime.multipart import MIMEMultipart
@@ -10,16 +11,24 @@ from email.mime.text import MIMEText
 truegrit_pass = "BruhlmaoXD123!@"
 truegrit_user = "gritmeals@outlook.com"
 
+c, conn = create_connection()
+create_table(c)
+customer_list = get_all_subs(c)
+save_session(conn)
+
+print(customer_list)
+print(type(customer_list))
+
 # customer_list = ["il27770@umbc.edu",
 #                  "pranavv1@umbc.edu",
 #                  "tlostos1@umbc.edu",
 #                  "nnegi1@umbc.edu",
 #                  "r148@umbc.edu",
 #                  "zhoward1@umbc.edu"]
-customer_list = ["gni@umd.edu"]
+# customer_list = ["gni@umd.edu"]
 
-print(truegrit_user)
-print(truegrit_pass)
+# print(truegrit_user)
+# print(truegrit_pass)
 
 with smtplib.SMTP("smtp.office365.com", 587) as stmp:
     stmp.ehlo()

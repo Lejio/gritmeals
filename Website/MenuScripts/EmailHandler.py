@@ -1,12 +1,12 @@
 import os
 import smtplib
-import Config
+from MenuScripts import Config
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 
 class EmailHandler:
-    def __init__(self, group, title, subject, message):
+    def __init__(self, group, title, subject, message, email_id):
         """
         Default Constructor for EmailHandler
         :param group: Group name of customers
@@ -19,6 +19,7 @@ class EmailHandler:
         self.title = title
         self.subject = subject
         self.message = message
+        self.email_id = email_id
 
     def loadCustomers(self):
         """
@@ -39,6 +40,33 @@ class EmailHandler:
             print("FILE NOT FOUND!")
         return False
 
+    def sendEmailToPerson(self):
+        with smtplib.SMTP(Config.SMTP_SERVER, Config.SMTP_PORT) as smtp:
+            smtp.ehlo()
+            smtp.starttls()
+            smtp.ehlo()
+
+            user_email = Config.USER_EMAIL
+            user_password = Config.USER_PASSWORD
+
+            smtp.login(user_email, user_password)
+
+
+            msg = MIMEMultipart('alternative')
+            msg['Subject'] = "You have Subscribed! "
+            msg['From'] = user_email
+            msg['To'] = self.email_id
+
+            text = "You have been subscribed to the UMBC dining bot!"
+
+            part1 = MIMEText(text, "plain")
+
+            msg.attach(part1)
+
+            smtp.sendmail(user_email, self.email_id, msg.as_string())
+
+
+
     def sendEmail(self):
         """
         Sends the emails to the customers
@@ -57,7 +85,7 @@ class EmailHandler:
             user_password = Config.USER_PASSWORD
 
             msg = MIMEMultipart('alternative')
-            msg['Subject'] = "Today's Menu: "
+            msg['Subject'] = "You have Subscribed! "
             msg['From'] = user_email
 
             # text = "Hi!\nHow are you?\nHere is the link you wanted:\nhttp://www.python.org"

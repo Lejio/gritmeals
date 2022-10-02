@@ -41,13 +41,23 @@ function Buttons()
 }
 
 
+function RegisterComponent()
+{
+    return (
+        <div className="registerFlexbox">
+            <EmailBox />
+            <Buttons />
+        </div>
+    )
+}
+
+
 function LeftColumn()
 {
     return(
         <div>
             <Header />
-            <EmailBox />    
-            <Buttons />
+            <RegisterComponent />
             <Footer />
         </div>
     )
@@ -97,7 +107,6 @@ function MainContent()
             <RightColumn />
         </div>
     )
-
 }
 
 
@@ -107,7 +116,6 @@ ReactDOM.render(<MainContent />, document.getElementById("root"))
 function signIn()
 {
     var email = document.getElementById("emailInput").value
-    document.getElementById("emailInput").value = ''
     
     if (email != "")
     {

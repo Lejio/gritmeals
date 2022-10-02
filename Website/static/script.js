@@ -7,7 +7,17 @@ function Header()
                 <h1 className="landingPageTitle">GritMeals</h1>          
             </div>
 
-            <p className="landingPageDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu placerat lorem. Ut diam lorem, Nunc tempus, lectus quis ultricies sodales, ex sapien pellentesque libero, congue ullamcorper augue nibh ac eros.</p>
+            <p className="landingPageDescription">GritMeals is a quality-of-life service that automatically curates and displays dining information from True Grits.</p>
+            <p className="getStartedText">To get started, simply enter your email address:</p>        
+        </div>
+    )
+}
+
+function Footer()
+{
+    return (
+        <div className="footer">
+            <h1>A hackUMBC project written by Ahmad Sayad, Gene Ni, & Pranav Senthilvel.</h1>
         </div>
     )
 }
@@ -47,21 +57,42 @@ function LeftColumn()
             <Header />
             <EmailBox />    
             <Buttons />
+            <Footer />
         </div>
     )
 }
 
+function InfoContent()
+{
+    return(
+        <div>
+            <h1 className="infoContentTitle">How GritMeals Works</h1>
+            
+            <div className="infoContent">
+                <h2>GritMeals was built using numerous technologies, including React, Mailchimp, Flask, SQLite, nginx, and Google Computing Engine.</h2>
+                <h2>GritMeals does four things when you enter your email address:</h2> 
+
+                <ol className="infoList">
+                    <li className="infoListItem"> Your email address is stored into a mailing database to recieve daily dining updates. </li>
+                    <li className="infoListItem"> GritMeals searches through and curates dining information from True Grits using a Chartwells API.</li>
+                    <li className="infoListItem"> The curated dining information is then formatted into an interactive HTML-embedded email. </li>                
+                    <li className="infoListItem"> The HTML-embedded email is then sent to all registered users at 6:00 AM (EST). </li>
+                </ol>
+
+                <a className="githubLink" href="https://github.com/Lejio/gritmeals">
+                    <h1 className="githubLinkText">Visit our GitHub!</h1>
+                </a>
+            </div>
+        </div>
+    )
+}
 
 
 function RightColumn()
 {
     return (
         <div className="landingPageInfoColumn">
-            <h1>A sentence goes here 1</h1>
-            <h1>A sentence goes here 2</h1>
-            <h1>A sentence goes here 3</h1>
-            <h1>A sentence goes here 4</h1>
-            <h1>A sentence goes here 5</h1>
+            <InfoContent />
         </div>  
     )
 }
@@ -86,5 +117,9 @@ ReactDOM.render(<MainContent />, document.getElementById("root"))
 function signIn()
 {
     var content = document.getElementById("emailInput").value
-    alert(content)
+    
+    if (content != "")
+    {
+        alert(content)
+    }
 }

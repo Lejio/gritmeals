@@ -16,10 +16,11 @@
 
 .landingPageEmailBox
 {
-    width: 350px;
+    width: 500px;
     padding: 12px 20px;
     margin: 18px 0;
-    margin-left: 20px;
+    margin-top: -50px;
+    margin-left: 150px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -45,11 +46,12 @@
 
 .landingPageDescription
 {
-    font-size: 35px;
+    font-size: 40px;
     inline-size: 850px;
+    width: 830px;    
     overflow-wrap: break-word;
 
-    margin-top:0px;
+    margin-top:-25px;
     margin-left: 25px;
 
 }
@@ -63,9 +65,10 @@
     border: none;
     color: white;
     padding: 13px;
+    width: 200px;
     text-align: center;
     display: inline-block;
-    margin-left: 120px;
+    margin-left: 280px;
     border-radius: 15px;
 }
 
@@ -87,4 +90,53 @@
     padding: 20px; 
     width: 600px;
     height: 700px;  
+}
+
+.infoContentTitle
+{
+    font-size: 50px;
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 0px;
+}
+
+.getStartedText
+{
+    padding-left: 25px;
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.footer
+{
+    font-weight: 100;
+    position: fixed;
+    bottom: 0;
+    font-size: 11px;
+}
+
+.infoContent
+{
+    font-size: 17px;
+    margin-top: -25px;
+}
+
+.infoList
+{
+    font-size: 25px;
+}
+
+.infoListItem
+{
+    padding-bottom: 15px;
+}
+
+.githubLink
+{
+    color: black;
+}
+
+.githubLinkText
+{
+    padding-left:160px;
 }

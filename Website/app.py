@@ -27,7 +27,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return render_template("/index2.html")
+    return render_template("/index.html")
     # return "<h1>Hello World!</h1>"
 
 

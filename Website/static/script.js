@@ -3,7 +3,7 @@ function Header()
     return (
         <div>
             <div className="landingPageFlexBox">
-                <img className="landingPageLogo" src="src/UMBCLogo.png"></img>
+                <img className="landingPageLogo" src="static/src/UMBCLogo.png"></img>
                 <h1 className="landingPageTitle">GritMeals</h1>          
             </div>
 
@@ -107,6 +107,7 @@ ReactDOM.render(<MainContent />, document.getElementById("root"))
 function signIn()
 {
     var email = document.getElementById("emailInput").value
+    document.getElementById("emailInput").value = ''
     
     if (email != "")
     {

@@ -1,0 +1,90 @@
+.entireSite
+{
+    background-color: rgb(255, 255, 255);
+    font-family: 'Overpass', sans-serif;
+}
+
+.landingPageContentDivider
+{
+    display: flex;
+}
+
+.landingPageFlexBox
+{
+    display: flex;
+}
+
+.landingPageEmailBox
+{
+    width: 350px;
+    padding: 12px 20px;
+    margin: 18px 0;
+    margin-left: 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.landingPageTitle
+{
+    font-size: 120px;
+    font-weight: 900;
+    margin-top: 18px;
+    margin-left: 25px;
+}
+
+.landingPageLogo
+{
+    height: 150px;
+    width:100px;
+
+    margin-top:15px;
+    margin-left: 15px;
+}
+
+.landingPageDescription
+{
+    font-size: 35px;
+    inline-size: 850px;
+    overflow-wrap: break-word;
+
+    margin-top:0px;
+    margin-left: 25px;
+
+}
+
+.landingButtons
+{
+    font-family: 'Overpass', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #e9c40d;
+    border: none;
+    color: white;
+    padding: 13px;
+    text-align: center;
+    display: inline-block;
+    margin-left: 120px;
+    border-radius: 15px;
+}
+
+.landingPageSideBar
+{
+    border-radius: 25px;
+    border: 2px solid #e9c40d;
+    padding: 20px;
+    margin-left: 60%; 
+    width: 500px;
+    height: 800px;  
+}
+
+.landingPageInfoColumn
+{
+    margin-top:25px;
+    border-radius: 25px;
+    background: #e9c40d;
+    padding: 20px; 
+    width: 600px;
+    height: 700px;  
+}

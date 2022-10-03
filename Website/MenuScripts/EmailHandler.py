@@ -1,6 +1,6 @@
 import os
 import smtplib
-from MenuScripts import Config
+import Config
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -51,7 +51,6 @@ class EmailHandler:
 
             smtp.login(user_email, user_password)
 
-
             msg = MIMEMultipart('alternative')
             msg['Subject'] = "You have Subscribed! "
             msg['From'] = user_email
@@ -64,8 +63,6 @@ class EmailHandler:
             msg.attach(part1)
 
             smtp.sendmail(user_email, self.email_id, msg.as_string())
-
-
 
     def sendEmail(self):
         """

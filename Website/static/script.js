@@ -116,7 +116,7 @@ ReactDOM.render(<MainContent />, document.getElementById("root"))
 function signIn()
 {
     var email = document.getElementById("emailInput").value
-    
+    document.getElementById("emailInput").value = ''
     if (email != "")
     {
         const dict_value = {email}

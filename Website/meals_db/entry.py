@@ -11,7 +11,7 @@ def create_connection():
 def create_table(c):
     try:
         cmd = """CREATE TABLE IF NOT EXISTS subscribers(
-            email VARCHAR(320));"""
+            email TEXT);"""
         c.execute(cmd)
         print("Creating")
     except:

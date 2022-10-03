@@ -8,8 +8,10 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 
-truegrit_pass = "BruhlmaoXD123!@"
-truegrit_user = "gritmeals@outlook.com"
+# truegrit_pass = "BruhlmaoXD123!@"
+# truegrit_user = "gritmeals@outlook.com"
+truegrit_pass = "GritMeals123"
+truegrit_user = "gritmealsmenu@outlook.com"
 
 c, conn = create_connection()
 create_table(c)

@@ -4,7 +4,8 @@ import sys
 
 
 def run(group=Config.GROUP_DEVELOPERS):
-    handler = EmailHandler(group, "Title", "Subject", "Message", None)
+    handler = EmailHandler(group, "Title", "Subject",
+                           "Message", "pranavv1@umbc.edu")
 
     if handler.sendEmail():
         print("Email sent!")

@@ -1,17 +1,21 @@
 # from multiprocessing.connection import wait
 import email
+from random import randint
 from flask import Flask
 from flask import Flask, render_template, redirect, url_for, request
 # from Website.MenuScripts.EmailHandler import EmailHandler
 # from meals_db import entry as e
-from MenuScripts import EmailHandler, Config
+# from MenuScripts import EmailHandler, Config
 import smtplib
 from MenuScripts import Config
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import json
+import sqlite3
+import random
 
 
+global count
 app = Flask(__name__)
 
 
@@ -28,10 +32,11 @@ def test1():
 
     # Eh = EmailHandler(None, "You have subscribed!",
     #                   "test", "Test tes", result['email'])
-
+    print(result['email'])
+    send_email(result['email'])
     return result
-    
-    
+
+
 def send_email(result):
     with smtplib.SMTP(Config.SMTP_SERVER, Config.SMTP_PORT) as smtp:
         smtp.ehlo()
@@ -46,7 +51,7 @@ def send_email(result):
         msg = MIMEMultipart('alternative')
         msg['Subject'] = "You have Subscribed! "
         msg['From'] = user_email
-        msg['To'] = result['email']
+        msg['To'] = result
 
         text = "You have been subscribed to the UMBC dining bot!"
         print("test")
@@ -54,22 +59,23 @@ def send_email(result):
 
         msg.attach(part1)
 
-        print(result["email"])
-        smtp.sendmail(user_email, result['email'], msg.as_string())
+        # print(result["email"])
+        smtp.sendmail(user_email, result, msg.as_string())
 
         print("test")
         smtp.close()
 
-    # Eh.sendEmail()
+        conn = sqlite3.connect('data.db')
+        cursor = conn.cursor()
 
-    # c, conn = e.create_connection()
-    # e.create_table(c)
-    # e.insert_data(c, result['email'])
-    # e.save_session(conn)
+        count = random.randint(1, 100000)
+        r = cursor.execute(
+            'INSERT INTO subs VALUES (' + str(count)+', "'+result+'")')
 
-    
+        print(r)
+        conn.commit()
+        conn.close()
 
 
 if __name__ == '__main__':
-
-    app.run(debug=True)
+    app.run(host="127.0.0.1", port=8000)
